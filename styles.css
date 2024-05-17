@@ -1,7 +1,8 @@
 #gameboard {
   width: 320px;
   height: 320px;
-  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .square {
@@ -14,5 +15,5 @@
 }
 
 .brown {
-  background-color: brown;
+  background-color: rgb(169, 43, 43);
 }
