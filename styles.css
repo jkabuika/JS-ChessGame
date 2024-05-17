@@ -10,6 +10,12 @@
   width: 40px;
 }
 
+.square svg {
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+}
+
 .beige {
   background-color: beige;
 }
