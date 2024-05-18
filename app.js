@@ -21,7 +21,6 @@ function createBoard() {
     square.innerHTML = startPiece
     square.firstChild?.setAttribute('draggable', true)
     square.setAttribute('square-id', i)
-
     const row = Math.floor( i / width)
     if (row % 2 === 0) {
       square.classList.add(i % 2 === 0 ? "beige" : "brown")
@@ -58,7 +57,7 @@ allSquares.forEach(square => {
 let startPositionId
 let draggedElement
 
-function dragStart (e) {
+function dragStart(e) {
   startPositionId = e.target.parentNode.getAttribute('square.id')
   draggedElement = e.target
 }
@@ -67,6 +66,17 @@ function dragOver(e) {
   e.preventDefault()
 }
 
-function dragDrop() {
-  
+function dragDrop(e) {
+  e.stopPropagation()
+
+  const targetSquare = e.target.closest('.square')
+  if (!targetSquare || !draggedElement) return
+
+  targetSquare.innerHTML = ''
+  targetSquare.appendChild(draggedElement)
+
+  const startSquare = document.querySelector(`[square-id='${startPositionId}']`)
+  startSquare.innerHTML = ''
 }
+
+
