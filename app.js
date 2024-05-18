@@ -19,6 +19,7 @@ function createBoard() {
     const square = document.createElement('div')
     square.classList.add('square')
     square.innerHTML = startPiece
+    square.firstChild?.setAttribute('draggable', true)
     square.setAttribute('square-id', i)
 
     const row = Math.floor( i / width)
